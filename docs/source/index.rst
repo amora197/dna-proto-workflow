@@ -57,9 +57,9 @@ Choosing this option will conduct a reference-free comparison of *samples* based
 +---+----------------------------+--------+------------------+
 
 
-.. figure:: ../images/de-novo-02.png
+.. figure:: ../images/denovo_01.png
    :alt: dna-proto-workflow flowchart
-   :height: 600px
+   :width: 600
    :align: center
 
    Flowchart for "denovo" (click to expand)
@@ -94,9 +94,9 @@ The full workflow for this use case consists of the following steps:
 ===== ======================================= ======== ========================
 
 
-.. figure:: ../images/dna-proto-workflow-varcall-11.png
+.. figure:: ../images/varcall_01.png
    :alt: dna-proto-workflow flowchart
-   :height: 800px
+   :width: 800
    :align: center
 
    Flowchart for "varcall" (click to expand)
@@ -300,7 +300,8 @@ Example ``sample2runlib.csv`` file:
 Regions of Interest for Variant Calling
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Variant calling can be restricted to particular regions of interest through ``metadata/contigs_of_interest.bed``: A file in bed file format listing identifier, start-, and end-positions (tab delimited, no header) for all chromosomes/contigs for all provided reference genomes. This is helpful for exome capture data but also to restrict the analysis to specific chromosomes. In addition to the main chromosomes, genome assemblies often comprise many orphan fragments that often are not of interest or even congest the output. While the workflow will attempt to create the file if not present, we recommend to always define a ``contigs_of_interest.bed`` file. This one files serves **all** reference genomes in use and hence can/must contain **all** chromosome/contig names of interest. Obviously, it must be the exact names as in the assembly. The correct chromosome/contig names and their lengths can be conveniently extracted from the corresponding .fai file for the reference genome assemblies. Note that the analysis restriction to regions in ``metadata/contigs_of_interest.bed`` only concerns the variant calling, not the read mapping.
+Variant calling can be restricted to particular regions of interest through ``metadata/contigs_of_interest.bed``: A file in bed file format listing identifier, start-, and end-positions (tab delimited, no header) for all chromosomes/contigs for all provided reference genomes. This is helpful for exome capture data but also to restrict the analysis to specific chromosomes. In addition to the main chromosomes, genome assemblies often comprise many orphan fragments that often are not of interest or even congest the output. While the workflow will attempt to create the file if not present, we recommend to always define a ``contigs_of_interest.bed`` file. This one files serves **all** reference genomes in use and hence can/must contain **all** chromosome/contig names of interest. Obviously, it must be the exact names as in the assembly. The correct chromosome/contig names and their lengths can be conveniently extracted from the corresponding .fai file for the reference genome assemblies. Note that the analysis restriction to regions in ``metadata/contigs_of_interest.bed`` only concerns the variant calling, not the read mapping.  
+
 Below example will restrict variant calling to the 11 chromosomes of cowpea. The hundreds of additional contigs that are present in the cowpea reference genome assembly are available for read mapping, but variants will not be called for them and their variants will subsequently not be present in the bcf/vcf files. Note that lines starting with ‘#’ will be disregarded. So in this case we skip the chloroplast (NC_018051.1).
 
 Example ``contigs_of_interest.bed`` file:

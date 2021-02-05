@@ -27,6 +27,8 @@ author = 'Norman Warthmann (PBGL)'
 # First need to install latex:
 # sudo apt-get install  texmaker gummi texlive texlive-full texlive-latex-recommended latexdraw intltool-debian lacheck libgtksourceview2.0-0 libgtksourceview2.0-common lmodern luatex po-debconf tex-common texlive-binaries texlive-extra-utils texlive-latex-base texlive-latex-base-doc texlive-luatex texlive-xetex texlive-lang-cyrillic texlive-fonts-extra texlive-science texlive-latex-extra texlive-pstricks
 
+# needed library 
+import sphinx_rtd_theme
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -63,6 +65,12 @@ import sphinx_rtd_theme
 html_theme = 'sphinx_rtd_theme'
 html_add_permalinks = ''
 master_doc = 'index'
+pygments_style = 'sphinx'
+
+html_theme_options = {
+    'sticky_navigation': True,
+    'collapse_navigation': False,
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
